@@ -1,2 +1,0 @@
-# DevAssignment
-DEVELOPMENTTTTTT

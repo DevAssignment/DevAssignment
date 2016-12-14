@@ -3,13 +3,11 @@ class TxtWriter:
     def __init__(self, txtFile):
         self.txtFile = txtFile
 
-    def writeTxt(self):
+    def writeTxt(self, txtToWrite):
         txt = open(self.txtFile, "w")
-        txt.write("test")
+        txt.write(txtToWrite)
         txt.close()
 
 
-txtWriter = TxtWriter("test.txt")
-txtWriter.writeTxt()
 
 

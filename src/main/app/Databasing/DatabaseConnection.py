@@ -1,10 +1,25 @@
+import psycopg2
+
+
 class DatabaseConnection:
-  def __init__(self, dbc):
-    self.DirectConnection = dbc
+    def __init__(self):
+        self.conn = None
 
-  def open(self):
-    self.DirectConnection.open()
+    # Opens db connection
+    def open(self):
+        self.conn = psycopg2.connect(database="Dev06B", user="postgres", password="root", host="127.0.0.1", port="5433")
+        print("db connection succeful")
 
-  def close(self):
-    self.DirectConnection.close()
+    # Closes db connection
+    def close(self):
+        self.conn.close()
+        print("db succesfully closed")
+
+    # Returns a list/array/enumerable of a result of the query
+    def selectQuery(self, query):
+        cur = self.conn.cursor()
+        cur.execute(query)
+        rows = cur.fetchall()
+        return rows
+
 
